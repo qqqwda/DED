@@ -17,6 +17,8 @@ namespace ListaEnlazadaSimple
             l.agregarNodo(9);
 
             l.RecorrerLista();
+
+            l.buscarNodo(9);
             Console.ReadKey();
         }
     }

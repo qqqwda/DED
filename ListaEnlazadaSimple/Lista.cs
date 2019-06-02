@@ -16,6 +16,19 @@ namespace ListaEnlazadaSimple
 
         }
 
+        public void buscarNodo(int numero)
+        {
+            Nodo trabajo = empiezo;
+            int pos = 0;
+            while (trabajo.dato != numero)
+            {
+                pos++;
+                trabajo = trabajo.siguiente;
+            }
+
+            Console.WriteLine("Se encontró: {0} en la posición: {1}",trabajo.dato,pos);
+        }
+
         public void agregarNodo(int numero)
         {
             Nodo nodoNuevo = new Nodo(numero);
@@ -47,7 +60,7 @@ namespace ListaEnlazadaSimple
                     trabajo = trabajo.siguiente;
                 }
 
-                Console.Write("null");
+                Console.WriteLine("null");
             }
         }
     }
