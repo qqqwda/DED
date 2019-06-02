@@ -6,7 +6,18 @@ namespace ListaEnlazadaSimple
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Lista l = new Lista();
+
+            l.agregarNodo(3);
+            l.agregarNodo(4);
+            l.agregarNodo(5);
+            l.agregarNodo(6);
+            l.agregarNodo(7);
+            l.agregarNodo(8);
+            l.agregarNodo(9);
+
+            l.RecorrerLista();
+            Console.ReadKey();
         }
     }
 }
