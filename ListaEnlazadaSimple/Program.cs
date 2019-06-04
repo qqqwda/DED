@@ -16,9 +16,10 @@ namespace ListaEnlazadaSimple
             l.agregarNodo(8);
             l.agregarNodo(9);
 
-            l.RecorrerLista();
+            l.recorrerLista();
 
-            l.buscarNodo(9);
+            Nodo n = l.getIndex(1);
+            Console.WriteLine(n.dato);
             Console.ReadKey();
         }
     }

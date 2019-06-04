@@ -8,6 +8,7 @@ namespace ListaEnlazadaSimple
     {
         public Nodo empiezo;
         public Nodo termino;
+        public int largo;
 
         public Lista()
         {
@@ -16,18 +17,35 @@ namespace ListaEnlazadaSimple
 
         }
 
-        public void buscarNodo(int numero)
+
+        public int determinarLargo()
         {
             Nodo trabajo = empiezo;
-            int pos = 0;
+            largo = -1;
+            while (trabajo != null)
+            {
+                largo++;
+                trabajo = trabajo.siguiente;
+            }
+            return largo;
+        }
+
+        
+
+        public Nodo buscarNodo(int numero)
+        {
+            Nodo trabajo = empiezo;
+
             while (trabajo.dato != numero)
             {
-                pos++;
                 trabajo = trabajo.siguiente;
             }
 
-            Console.WriteLine("Se encontró: {0} en la posición: {1}",trabajo.dato,pos);
+            return trabajo;
         }
+
+       
+
 
         public void agregarNodo(int numero)
         {
@@ -42,9 +60,25 @@ namespace ListaEnlazadaSimple
                 termino.siguiente = nodoNuevo;
                 termino = termino.siguiente;
             }
+            determinarLargo();
+            determinarIndex(termino);
         }
 
-        public void RecorrerLista()
+        private void determinarIndex(Nodo termino)
+        {
+            termino.index = determinarLargo();
+        }
+
+        public void eliminarIndex(int index)
+        {
+            Nodo trabajo = empiezo;
+            while (index != trabajo.index)
+            {
+                trabajo = trabajo.siguiente;
+            }
+        }
+
+        public void recorrerLista()
         {
             Nodo trabajo = empiezo;
 
@@ -56,13 +90,30 @@ namespace ListaEnlazadaSimple
             {
                 while (trabajo != null)
                 {
-                    Console.Write("{0}->", trabajo.dato);
+                    Console.WriteLine("Index {0}:[{1}]",trabajo.index,trabajo.dato);
+                    Console.WriteLine();
                     trabajo = trabajo.siguiente;
                 }
 
                 Console.WriteLine("null");
             }
         }
+
+        public Nodo getIndex(int index)
+        {
+            Nodo trabajo = empiezo;
+            while (trabajo.index != index)
+            {
+                trabajo = trabajo.siguiente;
+            }
+
+            return trabajo;
+        }
+        
+
+
+
+
     }
 
     

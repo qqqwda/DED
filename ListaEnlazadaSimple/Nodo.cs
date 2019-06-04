@@ -8,6 +8,7 @@ namespace ListaEnlazadaSimple
     {
         public int dato;
         public Nodo siguiente;
+        public int index;
 
         public int Dato { get { return dato; } set { value = dato; } }
         public Nodo Siguiente { get { return siguiente; } set { value = siguiente; } }
